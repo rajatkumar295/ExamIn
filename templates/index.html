@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+  background: linear-gradient(to right, black 0%, grey 100%);
+
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to right, black 0%, grey 100%);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 50px 8px 8px 8px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  text-align:center;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  padding-top:0px;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color:black;
+}
+#main span:hover{
+color:white;
+}
+#main span{
+font-size:40px;
+cursor:pointer;
+color:lightgray;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding:16px;
+}
+.maincontent{
+padding:50px;
+column-count:3;
+}
+.maincontent p{
+color:white;
+
+}
+.maincontent h1{
+color:white;
+}
+.maincontent2 h1{
+  color:white;
+   text-align:center;
+}
+.maincontent2 img{
+display:block;
+margin-left: auto;
+  margin-right: auto;
+width:50%;
+padding:20px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&Ll;</a>
+  <a href="showLogin">Login</a>
+  <a href="showSignup">Signup</a>
+<a href="#">About</a>
+  <a href="#">Contact</a>
+</div>
+
+<div id="main">
+  <span onclick="openNav()" >&ggg; examIN</span>
+  <div class="maincontent">
+    <img src="https://mettl.com/prelogin/resources/images/microsite/oes/Asset%2012.png?v=52.3.1">
+    <h1>For Faculty</h1>
+     <p>Save time on test paper evaluation. Receive instant feedback to plan curriculum. Manage question banks and create test effectively.</p>
+    <img src="https://mettl.com/prelogin/resources/images/microsite/oes/Asset%2011.png?v=52.3.1">
+    <h1>For Institute</h1>
+    <p>Increase your reach via digital registration. Simplify your process with our integrated payment solution. Avoid all the hassles of managing large centres.</p>
+    <img src="https://mettl.com/prelogin/resources/images/microsite/oes/Asset%2010.png?v=52.3.1">
+    <h1>For Student</h1>
+    <p>Save time on travelling to test centers. Receive actionable feedback with relevant benchmarks. Access industry validated questions.</p>
+    </div>
+  <div class="maincontent2">
+    <h1>Making Examinations a Seamless Experience</h1>
+    <img src="https://mettl.com/prelogin/resources/images/microsite/oes/Desktop-student%20journey.png?v=52.3.1">
+  </div>
+
+</div>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+</body>
+</html>

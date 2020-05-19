@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  background-color: whitesmoke;
+   background-size: cover;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background: linear-gradient(to right, black 0%, grey 70%);
+  position: fixed;
+  height: 100%;
+  overflow:auto;
+  
+}
+
+.sidebar a{
+  display: block;
+  color: black;
+  padding: 50px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color:grey;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color:grey;
+  color: white;
+}
+
+div.content {
+  margin-left: 185px;
+  padding: 1px 16px;
+  height: 700px;
+}
+.nav
+{
+  padding: 0;
+  width: 100%;
+  background: linear-gradient(to right, black 0%, grey 70%);
+  position: fixed;
+  height: 50px;
+  overflow: auto;
+  column-count: 2;
+}
+.nav a{
+ margin-left: 350px;
+ font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ font-size:30px;
+ color:black;
+ text-decoration: none;"
+}
+.cards{
+margin-top:100px;
+}
+.column{
+  float: left;
+  width: 25%;
+  padding: 0 25px;
+}
+.row {
+padding:30px;
+margin: 0 -5px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  //text-align: center;
+  border-radius:25px;
+  background-color: #f1f1f1;
+}
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <h1 style="text-align: center; color:black">Admin</h1>
+  <img style="background-color: grey; margin-left: 50px; width: 50%; border-radius: 50px;" src="{% static 'icons/admin.svg' %}">
+  <a class="active" href="showDashboard">Dashboard</a>
+
+    <a href="showDepartment">Department</a>
+  <a href="showSubject">Subject</a>
+  <a href="showStudent">Student</a>
+    <a href="showQuestions">Questions</a>
+  <a href="showExamination">Examination</a>
+</div>
+<div class="content">
+    <div class="nav">
+     <img style="margin-left:1000px;width: 4%;padding-top:5px;" src="{% static 'icons/logout.svg' %}">
+     <a href="show">Logout</a>
+    </div>
+<div class="cards">
+    <P>ADMIN - DASHBOARD</P>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+            <h1>10</h1>
+                <p>DEPARTMENT</p>
+            </div>
+        </div>
+         <div class="column">
+            <div class="card">
+            <h1>1</h1>
+                <p>STUDENT</p>
+            </div>
+        </div>
+         <div class="column">
+            <div class="card">
+            <h1>2</h1>
+                <p>EXAMINATION</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+            <h1>3</h1>
+                <p>CATEGORIES</p>
+            </div>
+        </div>
+         <div class="column">
+            <div class="card">
+            <h1>5</h1>
+                <p>SUBJECT</p>
+            </div>
+        </div>
+         <div class="column">
+            <div class="card">
+            <h1>21</h1>
+                <p>QUESTIONS</p>
+            </div>
+        </div>
+    </div>
+    <h1>Piechart</h1>
+
+<div id="piechart"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Hours per Day'],
+  ['Student Passing Exams', 8],
+  ['Student Failling Exam', 6],
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Piechart presentation of students assessments in FAIL and PASS', 'width':1200, 'height':500};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
+</div>
+
+</body>
+</html>
